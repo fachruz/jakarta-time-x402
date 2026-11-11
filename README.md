@@ -5,7 +5,7 @@ One pay-per-request endpoint, no dependencies (plain Node.js ≥ 18):
 - `GET /jakarta-time` — current date/time in a timezone (default `Asia/Jakarta`,
   override with `?zone=<IANA name>`). Costs **$0.001 per call**, paid in USDC on
   Base via the x402 protocol (`exact` scheme, x402Version 2).
-- Payments go to the vAPI agent wallet `0x7Bba079ECBE45C957b290C631b33315C850EdfFf` on Base.
+- Payments go to Fachruz's Bitget wallet `0x1AfD81F698b6bC87fE48A2B2078111AF0f6b968c` on Base.
 - Supporting documents: `GET /.well-known/x402` (discovery) and `GET /openapi.json`
   (OpenAPI 3.1 with `x-payment-info`), plus `GET /` and `GET /health` for humans.
 
