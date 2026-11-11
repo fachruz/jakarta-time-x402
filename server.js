@@ -6,7 +6,7 @@
 const http = require('node:http');
 
 // --- Payment configuration (Base mainnet USDC, x402 "exact" scheme) ---
-const PAY_TO = '0x7Bba079ECBE45C957b290C631b33315C850EdfFf'; // agent wallet (Base)
+const PAY_TO = '0x1AfD81F698b6bC87fE48A2B2078111AF0f6b968c'; // agent wallet (Base)
 const NETWORK = 'eip155:8453'; // Base mainnet (CAIP-2)
 const ASSET = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913'; // canonical USDC on Base
 const AMOUNT_ATOMIC = '1000'; // $0.001 (USDC has 6 decimals)
