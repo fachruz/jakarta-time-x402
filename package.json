@@ -1,0 +1,1 @@
+{"description":"Minimal pay-per-request current-time API using x402 v2 (Base USDC). No dependencies.","engines":{"node":">=18"},"main":"server.js","name":"jakarta-time-x402","private":true,"scripts":{"start":"node server.js"},"version":"1.0.0"}
