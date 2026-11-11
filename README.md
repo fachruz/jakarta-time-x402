@@ -1,13 +1,26 @@
-# Jakarta Time — minimal x402 paid API
+# Jakarta Time — x402 Paid API
 
-One pay-per-request endpoint, no dependencies (plain Node.js ≥ 18):
+A minimal, dependency-free pay-per-request API that returns the current date and
+time for any IANA timezone, paid per call with the **x402 protocol (v2)** in
+USDC on **Base**.
+
+**Status: live and listed.**
+
+- Marketplace listing: **Jakarta time** on [vAPI Call](https://api.vapinetwork.ai/call/jakarta-time) — listed 2026-11-11, payout wallet confirmed
+- Live endpoint: `GET https://jakarta-time-x402.onrender.com/jakarta-time`
+- Price: **$0.001 per call** (1000 atomic USDC, `exact` scheme)
+- Payout wallet: `0x1AfD81F698b6bC87fE48A2B2078111AF0f6b968c` (Base)
+- Grading: passes the official `vapi check` **11/11** (status, transport, version,
+  fields, scheme, asset, pay-to, timeout, extensions, discovery, OpenAPI)
+
+## Endpoint
 
 - `GET /jakarta-time` — current date/time in a timezone (default `Asia/Jakarta`,
-  override with `?zone=<IANA name>`). Costs **$0.001 per call**, paid in USDC on
-  Base via the x402 protocol (`exact` scheme, x402Version 2).
-- Payments go to Fachruz's Bitget wallet `0x1AfD81F698b6bC87fE48A2B2078111AF0f6b968c` on Base.
-- Supporting documents: `GET /.well-known/x402` (discovery) and `GET /openapi.json`
-  (OpenAPI 3.1 with `x-payment-info`), plus `GET /` and `GET /health` for humans.
+  override with `?zone=<IANA name>`). Response includes ISO string, date, time,
+  weekday, UTC offset and Unix seconds.
+- Supporting documents: `GET /.well-known/x402` (discovery) and
+  `GET /openapi.json` (OpenAPI 3.1 with `x-payment-info`), plus `GET /` and
+  `GET /health` for humans.
 
 ## Run it
 
@@ -45,8 +58,11 @@ For local demos only, `ALLOW_UNVERIFIED_DEMO=1` makes the endpoint serve the
 time payload to any request that presents a payment header, without verifying
 it. Never enable that on a public deployment.
 
-## Deploying
+## Deployment
 
-Needs any host that runs a plain Node HTTP server and gives a public HTTPS URL
-(the URL is what `vapi publish <url>` would later be pointed at — not done yet).
-See the deployment shortlist in the task report; nothing is published or listed.
+Runs on Render's free tier (Web Service, Singapore) from this repository —
+auto-deploys on push to `main`. The free instance sleeps after ~15 minutes
+idle, so the first request after a quiet period can take up to a minute.
+
+Built as a working portfolio piece: a real, listed, payable API endpoint —
+not a mock.
